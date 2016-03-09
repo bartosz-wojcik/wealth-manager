@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+# get edge version of Rails (5)
+gem 'rails', :github => 'rails/rails'
