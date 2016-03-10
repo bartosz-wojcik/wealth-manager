@@ -1,5 +1,4 @@
 .git
 .dockerignore
 Dockerfile
-Readme.md
-scripts/
+README.md
