@@ -1,0 +1,14 @@
+db:
+  image: postgres
+  env_file: 'db.env'
+
+web:
+  image: bartoffw/rails5
+  command: bash -c 'bundle install && rails s -b 0.0.0.0'
+  env_file: 'web.env'
+  ports:
+    - 3000:3000
+  volumes:
+    - './src:/app'
+  links:
+    - db

@@ -20,11 +20,6 @@ To make the money work for you, not the other way around.
 TBD
 
 
-## Troubleshooting
-
-TBD
-
-
 # License
 
 MIT
