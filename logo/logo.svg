@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="900"
+   height="900"
+   viewBox="0 0 900.00001 900.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/bartek/projects/@startups/net-value/logo/logo.png"
+   inkscape:export-xdpi="100"
+   inkscape:export-ydpi="100">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4144">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop4146" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop4148" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4144"
+       id="radialGradient4152"
+       cx="220.81403"
+       cy="737.59631"
+       fx="220.81403"
+       fy="737.59631"
+       r="51.608398"
+       gradientTransform="matrix(1,0,0,1.2546029,44.446712,-662.56587)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="1094.4083"
+     inkscape:cy="550.64321"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1055"
+     inkscape:window-x="1920"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-152.36216)">
+    <circle
+       style="fill:#bbdb93;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4154-1"
+       cx="450"
+       cy="602.36218"
+       r="450" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:345.18624878px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#b5ca8d;fill-opacity:1;stroke:none;stroke-width:6.61758327;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="2364.8611"
+       y="788.75195"
+       id="text4140"
+       sodipodi:linespacing="125%"
+       transform="scale(1.2987062,0.7699971)"><tspan
+         sodipodi:role="line"
+         id="tspan4142"
+         x="2364.8611"
+         y="788.75195"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1553.33776855px;font-family:'Ubuntu Condensed';-inkscape-font-specification:'Ubuntu Condensed, ';fill:#b5ca8d;fill-opacity:1;stroke:none;stroke-width:6.61758327;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">V</tspan></text>
+    <path
+       style="fill:#5a9696;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 516.84375,302.36208 24.048828,745.76052 a 450,450 0 0 0 30.371094,70.2422 L 469.39648,442.62184 c -8.58757,34.05484 -19.95175,70.99738 -34.09375,110.82422 -13.50049,39.24965 -28.50306,79.07643 -45.00781,119.48047 -15.00262,39.82689 -31.72676,79.65359 -50.17187,119.48049 -16.94299,39.2496 -34.01127,75.90024 -51.20508,109.95514 l 94.23828,0 492.79492,-443.39852 A 450,450 0 0 0 845.58008,388.72145 L 463.32031,732.66682 c 14.62779,-31.7461 29.02747,-65.22441 43.20117,-100.43365 15.67583,-35.78644 29.95133,-71.86097 42.82618,-108.22461 13.51634,-36.94084 25.63229,-74.17141 36.34765,-111.68945 11.57598,-37.51804 20.89915,-74.17059 27.96875,-109.95703 l -96.82031,0 z"
+       id="path4154"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="175.7317"
+       y="84.207092"
+       id="text4210"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="175.7317"
+         y="84.207092"
+         id="tspan4214">Font: Ubuntu Condensed</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-111.11678"
+       y="1153.3774"
+       id="text4219"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4221"
+         x="-111.11678"
+         y="1153.3774">Color palette: http://colorpalettes.net/color-palette-1537/</tspan></text>
+  </g>
+</svg>
