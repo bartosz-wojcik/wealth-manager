@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  layout 'login'
 
   def new
     @account = Account.new

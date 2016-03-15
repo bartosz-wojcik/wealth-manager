@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar .navbar-brand {
+    height: 50px;
+    padding: 10px;
+}
+
+.logo-img {
+    width: 150px;
+    height: auto;
+}
+
+.login-panel form {
+    padding-bottom: 20px;
+}
