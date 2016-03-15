@@ -10,16 +10,16 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="900"
+   width="4000"
    height="900"
-   viewBox="0 0 900.00001 900.00001"
+   viewBox="0 0 4000.0001 900.00001"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r"
-   sodipodi:docname="logo.svg"
-   inkscape:export-filename="/home/bartek/projects/@startups/net-value/logo/logo.png"
-   inkscape:export-xdpi="100"
-   inkscape:export-ydpi="100">
+   sodipodi:docname="logo-horizontal.svg"
+   inkscape:export-filename="/home/bartek/projects/@startups/net-value/logo/logo-horizontal-small.png"
+   inkscape:export-xdpi="2.9925001"
+   inkscape:export-ydpi="2.9925001">
   <defs
      id="defs4">
     <linearGradient
@@ -53,9 +53,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="761.44813"
-     inkscape:cy="209.50645"
+     inkscape:zoom="0.24748738"
+     inkscape:cx="2120.6284"
+     inkscape:cy="217.98569"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -73,7 +73,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -88,19 +88,6 @@
        cx="450"
        cy="602.36218"
        r="450" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:345.18624878px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#b5ca8d;fill-opacity:1;stroke:none;stroke-width:6.61758327;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="2364.8611"
-       y="788.75195"
-       id="text4140"
-       sodipodi:linespacing="125%"
-       transform="scale(1.2987062,0.7699971)"><tspan
-         sodipodi:role="line"
-         id="tspan4142"
-         x="2364.8611"
-         y="788.75195"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1553.33776855px;font-family:'Ubuntu Condensed';-inkscape-font-specification:'Ubuntu Condensed, ';fill:#b5ca8d;fill-opacity:1;stroke:none;stroke-width:6.61758327;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">V</tspan></text>
     <path
        style="fill:#5a9696;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 413.21245,297.21496 96.0349,879.32098 c 15.7123,20.15427 33.11286,38.93347 52.01298,56.13395 l 267.09116,-490.1848 c 3.23321,34.97177 4.8089,73.59059 4.72477,115.85365 0.32878,41.5053 -0.5669,84.05465 -2.68709,127.64821 -0.89569,42.54947 -3.41486,85.67158 -7.55688,129.36652 -2.91758,42.65072 -1.76734,31.37448 -6.64994,69.20996 l 92.90902,-6.10316 308.08615,-555.84212 C 788.25277,305.24892 770.85221,286.46972 751.9521,269.26924 L 505.91906,720.8096 c 3.23103,-34.80442 5.67057,-71.16644 7.32105,-109.08557 2.87497,-38.96326 0.0478,-127.73225 -4.19636,-180.59352 C 504.6122,373.41 501.51963,326.22231 488.80144,270.71313 Z"
@@ -109,25 +96,16 @@
        sodipodi:nodetypes="cccccccccccccccc" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="175.7317"
-       y="84.207092"
-       id="text4210"
-       sodipodi:linespacing="125%"><tspan
+       style="font-style:normal;font-weight:normal;font-size:835.78955078px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0b272d;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="839.65942"
+       y="980.88782"
+       id="text4800"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0990633,0.90986572)"><tspan
          sodipodi:role="line"
-         x="175.7317"
-         y="84.207092"
-         id="tspan4214">Font: Ubuntu Condensed</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-111.11678"
-       y="1153.3774"
-       id="text4219"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4221"
-         x="-111.11678"
-         y="1153.3774">Color palette: http://colorpalettes.net/color-palette-1537/</tspan></text>
+         id="tspan4802"
+         x="839.65942"
+         y="980.88782"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Ubuntu Condensed';-inkscape-font-specification:'Ubuntu Condensed, ';fill:#0b272d;fill-opacity:1">NetValue</tspan></text>
   </g>
 </svg>
