@@ -19,11 +19,17 @@
             </div>
         <% end %>
 
+        <% flash.each do |key, value| %>
+            <%= content_tag(:div, class: "alert alert-#{key}") do %>
+                <p><%= raw value %></p>
+            <% end %>
+        <% end %>
+
         <%= form_for(:account, :url => signup_url) do |f| %>
           <fieldset>
             <div class="form-group">
-              <label for="email">E-mail</label>
-              <input class="form-control" id="email" name="email" type="email" autofocus>
+              <label for="email">Your e-mail</label>
+              <%= f.text_field :email, class: 'form-control', autofocus: true %>
             </div>
             <!-- Change this to a button or input when using this as a form -->
             <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign Up" />
