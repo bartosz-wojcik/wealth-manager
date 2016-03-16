@@ -1,5 +1,9 @@
 # NetValue: Track your net worth with ease and elegance
 
+[![Build Status](https://travis-ci.org/procreativeeu/net-value.svg?branch=master)](https://travis-ci.org/procreativeeu/net-value)
+[![Code Climate](https://codeclimate.com/github/procreativeeu/net-value/badges/gpa.svg)](https://codeclimate.com/github/procreativeeu/net-value)
+[![Test Coverage](https://codeclimate.com/github/procreativeeu/net-value/badges/coverage.svg)](https://codeclimate.com/github/procreativeeu/net-value/coverage)
+
 ## Description
 
 Gather information about your assets and liabilities in one place,
