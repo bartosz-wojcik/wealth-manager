@@ -19,3 +19,7 @@ install:
 
 script:
   - RAILS_ENV=test bundle exec rake db:migrate test
+
+addons:
+  code_climate:
+    repo_token: 50dd29277f5e259ada530982f407a08424ae6e4f5c5513d6642bf6a87e858b75
