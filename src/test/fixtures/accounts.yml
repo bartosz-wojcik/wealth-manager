@@ -1,0 +1,6 @@
+user:
+  id: 1
+  name: User
+  email: user@example.com
+  password_digest: none
+  status: 1
