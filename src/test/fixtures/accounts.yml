@@ -2,5 +2,5 @@ user:
   id: 1
   name: User
   email: user@example.com
-  password_digest: none
+  password_digest: $2a$10$nBZg2W7T84XoCkatxrbWKOvF41iwoxgHkySZpDdZTzInzxsS0E1tG
   status: 1
