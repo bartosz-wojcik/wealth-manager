@@ -12,8 +12,6 @@
     <%= favicon_link_tag 'logo-small.png', type: 'image/png' %>
     <%= favicon_link_tag 'logo-small.png', rel: 'icon', type: 'image/png' %>
 
-    <%= csrf_meta_tags %>
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,11 +21,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
@@ -46,7 +45,7 @@
             <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
           </a>
           <ul class="dropdown-menu dropdown-user">
-            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            <li><a href="/accounts/details"><i class="fa fa-user fa-fw"></i> Profile</a>
             </li>
             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
             </li>
@@ -61,6 +60,30 @@
       <!-- /.navbar-top-links -->
       <% end %>
     </nav>
+
+    <!-- Page header -->
+    <% if current_account.present? && (current_account.inactive? || flash.present?) %>
+    <div class="row">
+      <div class="col-md-8 col-md-push-2">
+        <% if current_account.inactive? %>
+        <div class="alert alert-warning">
+          <p>
+            Your account is not activated yet. Please activate it as soon as you can.<br/>
+            To resend the activation email, please <%= link_to('click here', { controller: 'accounts', action: 'resend_activation' }) %>.
+          </p>
+        </div>
+        <% end %>
+
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, class: "alert alert-#{key}") do %>
+            <p><%= raw value %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <!-- /page header -->
+
     <%= yield %>
   </body>
 </html>

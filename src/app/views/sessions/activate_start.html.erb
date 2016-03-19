@@ -6,18 +6,12 @@
           <p class="text-center">
             <%= image_tag 'logo-small.png', :alt => 'NetValue', :class => 'logo-img' %>
           </p>
-          <div class="text-center">
-            <h3 class="content-group">Activate account</h3>
-          </div>
+          <h3 class="text-center">Activate account</h3>
 
-          <% if @account.errors.any? %>
-          <div class="alert alert-danger">
-            <ul>
-              <% for message_error in @account.errors.full_messages %>
-                  <li><%= message_error %></li>
-              <% end %>
-            </ul>
-          </div>
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, class: "alert alert-#{key}") do %>
+              <p><%= raw value %></p>
+            <% end %>
           <% end %>
 
           <p class="text-center text-muted">
@@ -25,7 +19,7 @@
           </p>
 
           <div class="form-group">
-            <%= f.text_field :email, class: 'form-control', placeholder: 'Your email' %>
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Your email' %>
           </div>
 
           <button type="submit" class="btn btn-lg btn-success btn-block">Start activation</button>

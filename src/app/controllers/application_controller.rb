@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def load_account
+    @account = current_account
+  end
+
   private
   def current_account
     Account.where(id: session[:user_id]).first

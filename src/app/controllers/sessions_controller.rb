@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
+  before_action :new_account, only: [:new, :activate_start, :recover_start]
+
   def new
-    @account = Account.new
   end
 
   def save
@@ -12,7 +13,7 @@ class SessionsController < ApplicationController
       @account.generate_activation_key
       if @account.save
         session[:user_id] = @account.id
-        # UserMailer.activation_email(@account).deliver_now
+        AccountMailer.activation_email(@account).deliver_now
         redirect_to root_url
       else
         render 'new'
@@ -25,15 +26,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if request.patch? || request.post?
-      Rails.logger.debug params.inspect
-      @account = Account.find_by_email(params[:email])
-      if @account && params[:password].present? && @account.authenticate(params[:password])
-        session[:user_id] = @account.id
-        redirect_to root_url, flash: { success: 'Welcome to your dashboard!' }
-      else
-        redirect_to login_url, flash: { danger: 'Incorrect username or password.' }
-      end
+  end
+
+  def create_post
+    @account = Account.find_by_email(params[:email])
+    if @account && params[:password].present? && @account.authenticate(params[:password])
+      session[:user_id] = @account.id
+      redirect_to root_url, flash: { success: 'Welcome to your dashboard!' }
+    else
+      redirect_to login_url, flash: { danger: 'Incorrect username or password.' }
     end
   end
 
@@ -44,17 +45,16 @@ class SessionsController < ApplicationController
   end
 
   def activate_start
-    if request.post?
-      @account = Account.find_by_email(account_params[:email])
-      if @account && @account.not_activated?
-        @account.generate_activation_key!
-        # UserMailer.activation_email(@account).deliver_now
-        redirect_to login_url, flash: { success: 'Activation email has been sent.' }
-      else
-        redirect_to activate_start_url, flash: { danger: 'Provided email address does not point to an inactive account.' }
-      end
+  end
+
+  def activate_start_post
+    @account = Account.find_by_email(account_params[:email])
+    if @account && @account.not_activated?
+      @account.generate_activation_key!
+      AccountMailer.activation_email(@account).deliver_now
+      redirect_to login_url, flash: { success: 'Activation email has been sent.' }
     else
-      @account = Account.new
+      redirect_to activate_start_url, flash: { danger: 'Provided email address does not point to an inactive account.' }
     end
   end
 
@@ -70,17 +70,16 @@ class SessionsController < ApplicationController
   end
 
   def recover_start
-    if request.post?
-      @account = Account.find_by_email(account_params[:email])
-      if @account && @account.active?
-        @account.generate_activation_key!
-        # UserMailer.recovery_email(@account).deliver_now
-        redirect_to login_url, flash: { success: 'Please check your email to recover your password.' }
-      else
-        redirect_to recover_start_url, flash: { danger: 'This email address isn\'t associated with an active account.' }
-      end
+  end
+
+  def recover_start_post
+    @account = Account.find_by_email(account_params[:email])
+    if @account && @account.active?
+      @account.generate_activation_key!
+      AccountMailer.recovery_email(@account).deliver_now
+      redirect_to login_url, flash: { success: 'Please check your email to recover your password.' }
     else
-      @account = Account.new
+      redirect_to recover_start_url, flash: { danger: 'This email address isn\'t associated with an active account.' }
     end
   end
 
@@ -104,5 +103,9 @@ class SessionsController < ApplicationController
   private
   def account_params
     params.require(:account).permit(:email)
+  end
+
+  def new_account
+    @account = Account.new
   end
 end

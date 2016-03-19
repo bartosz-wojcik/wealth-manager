@@ -1,35 +1,42 @@
 class AccountsController < ApplicationController
+
   before_action :authorize
+  before_action :load_account
 
   def details
     self.page_title = 'Account Details'
-    @account = current_account
-    if request.patch? || request.post?
-      @account.attributes = account_params(@account.params_name)
-      if @account.save
-        redirect_to({ action: 'details' }, flash: { success: 'Profile updated successfully.' })
-      end
+  end
+
+  def details_post
+    @account.attributes = account_params(@account.params_name)
+    if @account.save
+      redirect_to({ action: 'details' }, flash: { success: 'Profile updated successfully.' })
+    else
+      redirect_to({ action: 'details' }, flash: { danger: @account.errors.full_messages.join('<br/>') })
     end
   end
 
   def password
     self.parent_link = view_context.link_to('Account Details', { action: 'details' })
     self.page_title = 'Change account password'
-    @account = current_account
-    if request.patch? || request.post?
-      @account.attributes = password_params(@account.params_name)
-      if @account.save
-        redirect_to({ action: 'details' }, flash: { success: 'Password changed successfully.' })
-      end
+  end
+
+  def password_post
+    @account.attributes = password_params(@account.params_name)
+    if @account.save
+      redirect_to({ action: 'details' }, flash: { success: 'Password changed successfully.' })
+    else
+      redirect_to({ action: 'password' }, flash: { danger: @account.errors.full_messages.join('<br/>') })
     end
   end
 
   def resend_activation
-    account = current_account
-    if account.not_activated?
-      account.generate_activation_key!
-      # UserMailer.activation_email(account).deliver_now
+    if @account.not_activated?
+      @account.generate_activation_key!
+      AccountMailer.activation_email(@account).deliver_now
       redirect_to root_url, flash: { success: 'Activation email has been sent.' }
+    else
+      redirect_to root_url
     end
   end
 
