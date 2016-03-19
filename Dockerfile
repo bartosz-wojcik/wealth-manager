@@ -4,4 +4,4 @@ ADD src /app
 
 VOLUME /app
 
-RUN bundle install
+RUN bundle install && rails s -b 0.0.0.0

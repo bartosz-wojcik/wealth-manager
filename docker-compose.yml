@@ -1,16 +1,24 @@
-db:
-  image: postgres
-  env_file: 'db.env'
-  ports:
-    - 5432:5432
+version: '2'
+services:
+  db:
+    image: postgres
+    env_file:
+      - 'db.env'
+    ports:
+      - 5432:5432
 
-web:
-  build: .
-  command: bash -c 'rails s -b 0.0.0.0'
-  env_file: 'web.env'
-  ports:
-    - 3000:3000
-  volumes:
-    - './src:/app'
-  links:
-    - db
+  web:
+    build: .
+    depends_on:
+      - db
+#    command:
+#      - rails db:migrate
+#      - rails s -b 0.0.0.0
+    env_file:
+      - 'web.env'
+    ports:
+      - 3000:3000
+    volumes:
+      - './src:/app'
+    links:
+      - db
