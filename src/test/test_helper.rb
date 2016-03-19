@@ -1,4 +1,5 @@
 require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.configuration.git_dir = '..'
 CodeClimate::TestReporter.start
 
 ENV['RAILS_ENV'] ||= 'test'
