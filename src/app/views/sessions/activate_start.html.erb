@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="login-panel">
+        <%= form_for(:account, :url => activate_start_post_url) do |f| %>
+          <p class="text-center">
+            <%= image_tag 'logo-small.png', :alt => 'NetValue', :class => 'logo-img' %>
+          </p>
+          <div class="text-center">
+            <h3 class="content-group">Activate account</h3>
+          </div>
+
+          <% if @account.errors.any? %>
+          <div class="alert alert-danger">
+            <ul>
+              <% for message_error in @account.errors.full_messages %>
+                  <li><%= message_error %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+
+          <p class="text-center text-muted">
+            Provide email to activate account
+          </p>
+
+          <div class="form-group">
+            <%= f.text_field :email, class: 'form-control', placeholder: 'Your email' %>
+          </div>
+
+          <button type="submit" class="btn btn-lg btn-success btn-block">Start activation</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

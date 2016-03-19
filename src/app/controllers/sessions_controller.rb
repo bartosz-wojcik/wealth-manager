@@ -26,8 +26,9 @@ class SessionsController < ApplicationController
 
   def create
     if request.patch? || request.post?
+      Rails.logger.debug params.inspect
       @account = Account.find_by_email(params[:email])
-      if @account && @account.authenticate(params[:password])
+      if @account && params[:password].present? && @account.authenticate(params[:password])
         session[:user_id] = @account.id
         redirect_to root_url, flash: { success: 'Welcome to your dashboard!' }
       else

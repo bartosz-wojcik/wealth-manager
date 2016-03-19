@@ -5,9 +5,6 @@ class SiteController < ApplicationController
 
     if current_account.is_a? Account
       render 'dashboard'
-    else
-      # for now just redirect to login
-      redirect_to :login
     end
   end
 
