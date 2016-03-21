@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       if @account.save
         session[:user_id] = @account.id
         AccountMailer.activation_email(@account).deliver_now
-        redirect_to root_url
+        redirect_to root_url, flash: { success: 'Your account has been created!' }
       else
         render 'new'
       end
