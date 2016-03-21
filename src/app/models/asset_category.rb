@@ -1,0 +1,2 @@
+class AssetCategory < ApplicationRecord
+end

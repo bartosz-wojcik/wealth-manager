@@ -1,0 +1,2 @@
+class PortfolioChange < ApplicationRecord
+end

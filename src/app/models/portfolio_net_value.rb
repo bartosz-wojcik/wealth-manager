@@ -1,0 +1,2 @@
+class PortfolioNetValue < ApplicationRecord
+end
