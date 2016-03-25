@@ -21,5 +21,8 @@ Rails.application.routes.draw do
   post 'recover' => 'sessions#recover_start_post', as: :recover_start_post
   get  'recover/:key' => 'sessions#recover', as: :recover
 
+  resources :portfolios
+  resources :asset_categories
+
   root 'site#index'
 end
