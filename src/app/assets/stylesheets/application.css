@@ -27,3 +27,11 @@
 .login-panel form {
     padding-bottom: 20px;
 }
+
+#dashboard .panel-body {
+    text-align: center;
+}
+#dashboard .panel-body h3,
+#dashboard .panel-body .btn-primary {
+    margin: 20px 0;
+}
