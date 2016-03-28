@@ -24,7 +24,7 @@ class Account < ApplicationRecord
   end
 
   def gravatar_url(size = 200)
-    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(downcase_email)}?s=#{size}"
+    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(downcase_email)}?d=mm&s=#{size}"
   end
 
   def no_password?
