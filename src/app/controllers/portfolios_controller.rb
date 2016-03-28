@@ -19,6 +19,10 @@ class PortfoliosController < ApplicationController
   end
 
   def create
+    @portfolio = Portfolio.new(portfolio_params)
+    @portfolio.account_id = current_account.id
+    @portfolio.save
+    redirect_to @portfolio
   end
 
   def update
@@ -33,7 +37,7 @@ class PortfoliosController < ApplicationController
   end
 
   def portfolio_params
-    # TODO
+    params.require(:portfolio).permit(:name, :description)
   end
 
 end
