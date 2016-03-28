@@ -23,6 +23,10 @@ class Account < ApplicationRecord
     self.class.name.downcase.singularize
   end
 
+  def gravatar_url(size = 200)
+    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(downcase_email)}?s=#{size}"
+  end
+
   def no_password?
     self.password_digest == Account::DUMMY_PASSWORD
   end
