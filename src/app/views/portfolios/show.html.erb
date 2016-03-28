@@ -5,9 +5,14 @@
 </div>
 <div class="row">
   <div class="col-md-5">
-    <div class="net-value">
-      <h4>Net Value</h4>
-      <strong>245,000 €</strong>
+    <div class="net-value media">
+      <div class="media-left">
+        <%= image_tag(current_account.gravatar_url(150), class: 'img-circle') %>
+      </div>
+      <div class="media-body">
+        <h4>Net Value</h4>
+        <strong class="positive">245,000 €</strong>
+      </div>
     </div>
   </div>
   <div class="col-md-7">

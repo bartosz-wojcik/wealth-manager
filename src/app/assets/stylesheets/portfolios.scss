@@ -1,3 +1,23 @@
 // Place all the styles related to the Portfolios controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.net-value {
+  padding: 0 0 0 1em;
+
+  .media-body {
+    h4 {
+      font-size: 3em;
+    }
+    strong {
+      font-size: 3.8em;
+    }
+  }
+}
+
+.positive {
+  color: #bbdb93;
+}
+.negative {
+  color: #bb4e51;
+}
