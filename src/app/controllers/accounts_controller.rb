@@ -30,6 +30,11 @@ class AccountsController < ApplicationController
     end
   end
 
+  def notifications
+    self.parent_link = view_context.link_to('Account Details', { action: 'details' })
+    self.page_title = 'Change notifications settings'
+  end
+
   def resend_activation
     if @account.not_activated?
       @account.generate_activation_key!

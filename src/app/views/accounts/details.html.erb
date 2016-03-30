@@ -3,7 +3,16 @@
     <div class="panel panel-default" id="account-details">
       <div class="panel-body">
         <div class="text-center">
-          <%= image_tag(@account.gravatar_url, class: 'img-circle') %>
+          <%= image_tag(@account.gravatar_url, class: 'img-circle', alt: @account) %>
+        </div>
+        <div class="account-summary text-center">
+          <a href="#" class="edit"><i class="fa fa-edit"></i></a>
+          <% if @account.name.present? %>
+          <h3><%= @account.name %></h3>
+          <% end %>
+          <p class="lead">
+            <i class="fa fa-envelope"></i> <%= @account.email %>
+          </p>
         </div>
         <%= form_for(@account, url: { action: 'details_post' }) do |f| %>
           <div class="form-group">
@@ -16,6 +25,7 @@
           </div>
 
           <div class="text-right">
+            <button class="btn btn-default form-cancel">Cancel</button>
             <button type="submit" class="btn btn-primary">Save</button>
           </div>
         <% end %>
@@ -25,5 +35,8 @@
     <h4 class="text-center">
       <%= link_to('Change password', { action: 'password' }, class: 'text-size-large') %>
     </h4>
+    <h5 class="text-center">
+      <%= link_to('Change notifications settings', { action: 'notifications' }, class: 'text-size-large') %>
+    </h5>
   </div>
 </div>

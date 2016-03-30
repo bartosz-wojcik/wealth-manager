@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+    $('.account-summary .edit').on('click', function() {
+        $('#account-details .account-summary').slideUp();
+        $('#account-details form').slideDown();
+        return false;
+    });
+    $('#account-details .form-cancel').on('click', function() {
+        $('#account-details .account-summary').slideDown();
+        $('#account-details form').slideUp();
+        return false;
+    });
+});

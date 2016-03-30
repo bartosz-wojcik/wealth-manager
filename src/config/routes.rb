@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get   'accounts/password'
   match 'accounts/password_post', via: [:post, :patch]
   get   'accounts/resend_activation'
+  get   'accounts/notifications'
 
   # account activation urls
   get  'activate' => 'sessions#activate_start', as: :activate_start

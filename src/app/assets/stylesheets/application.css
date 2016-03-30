@@ -35,3 +35,20 @@
 #dashboard .panel-body .btn-primary {
     margin: 20px 0;
 }
+
+.account-summary {
+    position: relative;
+}
+.account-summary .lead {
+    margin-top: 20px;
+}
+.account-summary .edit {
+    position: absolute;
+    top: -1.5em;
+    right: 1em;
+    font-size: 2em;
+}
+#account-details form {
+    display: none;
+    margin-top: 20px;
+}
