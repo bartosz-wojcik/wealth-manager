@@ -26,4 +26,26 @@ $(document).ready(function() {
         $('#account-details form').slideUp();
         return false;
     });
+
+    $('.notifications-link a').on('click', function() {
+        $('.notifications-link').slideUp();
+        $('#notification-settings').slideDown();
+        return false;
+    });
+    $('#notification-settings .form-cancel').on('click', function() {
+        $('.notifications-link').slideDown();
+        $('#notification-settings').slideUp();
+        return false;
+    });
+
+    $('.password-link a').on('click', function() {
+        $('.password-link').slideUp();
+        $('#change-password').slideDown();
+        return false;
+    });
+    $('#change-password .form-cancel').on('click', function() {
+        $('.password-link').slideDown();
+        $('#change-password').slideUp();
+        return false;
+    });
 });

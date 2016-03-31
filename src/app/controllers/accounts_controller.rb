@@ -16,23 +16,16 @@ class AccountsController < ApplicationController
     end
   end
 
-  def password
-    self.parent_link = view_context.link_to('Account Details', { action: 'details' })
-    self.page_title = 'Change account password'
-  end
-
   def password_post
     @account.attributes = password_params(@account.params_name)
     if @account.save
       redirect_to({ action: 'details' }, flash: { success: 'Password changed successfully.' })
     else
-      redirect_to({ action: 'password' }, flash: { danger: @account.errors.full_messages.join('<br/>') })
+      redirect_to({ action: 'details' }, flash: { danger: @account.errors.full_messages.join('<br/>') })
     end
   end
 
-  def notifications
-    self.parent_link = view_context.link_to('Account Details', { action: 'details' })
-    self.page_title = 'Change notifications settings'
+  def notifications_post
   end
 
   def resend_activation
