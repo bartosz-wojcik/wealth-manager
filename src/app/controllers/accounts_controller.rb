@@ -9,6 +9,7 @@ class AccountsController < ApplicationController
 
   def details_post
     @account.attributes = account_params(@account.params_name)
+
     if @account.save
       redirect_to({ action: 'details' }, flash: { success: 'Profile updated successfully.' })
     else
@@ -40,7 +41,7 @@ class AccountsController < ApplicationController
 
   private
   def password_params(params_name)
-    params.require(params_name).permit(:password, :password_confirmation)
+    params.require(params_name).permit(:password)
   end
 
   def account_params(params_name)

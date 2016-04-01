@@ -16,11 +16,11 @@
         </div>
         <%= form_for(@account, url: { action: 'details_post' }) do |f| %>
           <div class="form-group">
-            <label>Name</label>
+            <label for="account_name">Name</label>
             <%= f.text_field :name, class: 'form-control' %>
           </div>
           <div class="form-group">
-            <label>Email</label>
+            <label for="account_email">Email</label>
             <%= f.text_field :email, class: 'form-control' %>
           </div>
 
