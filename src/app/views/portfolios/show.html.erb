@@ -3,8 +3,8 @@
     <h3 class="lead text-center">Welcome <%= current_account %></h3>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-5">
+<div class="row portfolio-details">
+  <div class="col-md-5 col-md-offset-1">
     <div class="net-value media">
       <div class="media-left">
         <%= image_tag(current_account.gravatar_url(150), class: 'img-circle') %>
@@ -15,7 +15,52 @@
       </div>
     </div>
   </div>
-  <div class="col-md-7">
-    <h4>History</h4>
+  <div class="col-md-5">
+    <div class="net-value-change media">
+      <div class="media-left">
+        <i class="fa fa-long-arrow-up positive"></i>
+      </div>
+      <div class="media-body">
+        <h4>Last Month</h4>
+        <strong class="positive">3%</strong>
+        <a href="#" class="btn btn-primary btn-lg pull-right">Update</a>
+      </div>
+    </div>
   </div>
 </div>
+<div class="row portfolio-charts">
+  <div class="col-md-5 col-md-offset-1">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        Asset Classes
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="flot-chart">
+          <div class="flot-chart-content" id="flot-pie-chart"></div>
+        </div>
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+  <div class="col-md-5">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        History
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="flot-chart">
+          <div class="flot-chart-content" id="flot-line-chart-multi"></div>
+        </div>
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+</div>
+
+<p class="text-center">
+  <a href="#" class="btn btn-default btn-lg">Report Details</a>
+</p>

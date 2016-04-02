@@ -2,9 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.net-value {
-  padding: 0 0 0 1em;
-
+.portfolio-details {
+  .media-left {
+    padding-right: 2em;
+  }
   .media-body {
     h4 {
       font-size: 3em;
@@ -13,6 +14,17 @@
       font-size: 3.8em;
     }
   }
+}
+.net-value {
+  padding: 0 0 0 1em;
+}
+.net-value-change {
+  .media-left i {
+    font-size: 9em;
+  }
+}
+.portfolio-charts {
+  margin: 3em 0 0;
 }
 
 .positive {
