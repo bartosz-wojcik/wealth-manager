@@ -8,6 +8,8 @@ class PortfoliosController < ApplicationController
 
   def show
     load_portfolio(params[:id])
+    @portfolio_change = PortfolioChange.new
+    @portfolio_change.portfolio_id = @portfolio.id
   end
 
   def new

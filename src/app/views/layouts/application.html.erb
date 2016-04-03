@@ -57,29 +57,31 @@
       <% end %>
     </nav>
 
-    <!-- Page header -->
-    <% if current_account.present? && (current_account.inactive? || flash.present?) %>
-    <div class="row">
-      <div class="col-md-8 col-md-push-2">
-        <% flash.each do |key, value| %>
-            <%= content_tag(:div, class: "alert alert-#{key}") do %>
-                <p><%= raw value %></p>
-            <% end %>
-        <% end %>
+    <div class="container-fluid">
+      <!-- Page header -->
+      <% if current_account.present? && (current_account.inactive? || flash.present?) %>
+      <div class="row">
+        <div class="col-md-8 col-md-push-2">
+          <% flash.each do |key, value| %>
+              <%= content_tag(:div, class: "alert alert-#{key}") do %>
+                  <p><%= raw value %></p>
+              <% end %>
+          <% end %>
 
-        <% if current_account.inactive? %>
-        <div class="alert alert-warning">
-          <p>
-            Your account is not activated yet. Please activate it as soon as you can.<br/>
-            To resend the activation email, please <%= link_to('click here', { controller: 'accounts', action: 'resend_activation' }) %>.
-          </p>
+          <% if current_account.inactive? %>
+          <div class="alert alert-warning">
+            <p>
+              Your account is not activated yet. Please activate it as soon as you can.<br/>
+              To resend the activation email, please <%= link_to('click here', { controller: 'accounts', action: 'resend_activation' }) %>.
+            </p>
+          </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
-    </div>
-    <% end %>
-    <!-- /page header -->
+      <% end %>
+      <!-- /page header -->
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>

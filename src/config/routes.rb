@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get  'recover/:key' => 'sessions#recover', as: :recover
 
   resources :portfolios
+  resources :portfolio_changes
   resources :asset_categories
 
   root 'site#index'
