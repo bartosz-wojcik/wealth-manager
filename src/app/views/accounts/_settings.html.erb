@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-4 col-sm-push-4">
+    <div class="panel panel-info" id="general-settings">
+      <div class="panel-heading">
+        <h4 class="panel-title"><i class="fa fa-cog"></i> Settings</h4>
+      </div>
+
+      <div class="panel-body">
+        <%= form_for(@account, url: { action: 'settings_post'}) do |f| %>
+          <p class="text-muted">No settings yet</p>
+
+          <div class="text-right">
+            <button class="btn btn-default form-cancel">Cancel</button>
+            <button type="submit" class="btn btn-primary" disabled>Save</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
