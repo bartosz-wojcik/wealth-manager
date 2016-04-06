@@ -53,6 +53,6 @@
     margin-top: 20px;
 }
 
-#notification-settings, #change-password {
+#general-settings, #notification-settings, #change-password {
     display: none;
 }

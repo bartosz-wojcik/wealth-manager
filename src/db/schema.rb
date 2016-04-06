@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322224733) do
+ActiveRecord::Schema.define(version: 20160406193133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20160322224733) do
     t.datetime "last_seen"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "currency_id"
   end
+
+  add_index "accounts", ["currency_id"], name: "index_accounts_on_currency_id", using: :btree
 
   create_table "asset_categories", force: :cascade do |t|
     t.integer  "asset_type_id"
@@ -93,4 +96,5 @@ ActiveRecord::Schema.define(version: 20160322224733) do
 
   add_index "portfolios", ["account_id"], name: "index_portfolios_on_account_id", using: :btree
 
+  add_foreign_key "accounts", "currencies"
 end

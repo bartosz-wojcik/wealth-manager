@@ -27,6 +27,17 @@ $(document).ready(function() {
         return false;
     });
 
+    $('.settings-link a').on('click', function() {
+        $('.settings-link').slideUp();
+        $('#general-settings').slideDown();
+        return false;
+    });
+    $('#general-settings .form-cancel').on('click', function() {
+        $('.settings-link').slideDown();
+        $('#general-settings').slideUp();
+        return false;
+    });
+
     $('.notifications-link a').on('click', function() {
         $('.notifications-link').slideUp();
         $('#notification-settings').slideDown();
