@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406193133) do
+ActiveRecord::Schema.define(version: 20160426062749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,10 +51,18 @@ ActiveRecord::Schema.define(version: 20160406193133) do
 
   create_table "currencies", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "current_rate",     precision: 12, scale: 4
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "currency_rates", force: :cascade do |t|
+    t.string   "pair_name"
+    t.integer  "base_currency_id"
+    t.integer  "quote_currency_id"
+    t.decimal  "current_rate",      precision: 12, scale: 4
     t.datetime "rate_cached_time"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   create_table "portfolio_changes", force: :cascade do |t|
@@ -97,4 +105,6 @@ ActiveRecord::Schema.define(version: 20160406193133) do
   add_index "portfolios", ["account_id"], name: "index_portfolios_on_account_id", using: :btree
 
   add_foreign_key "accounts", "currencies"
+  add_foreign_key "currency_rates", "currencies", column: "base_currency_id"
+  add_foreign_key "currency_rates", "currencies", column: "quote_currency_id"
 end
