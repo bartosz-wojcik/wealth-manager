@@ -9,24 +9,20 @@ class AccountsController < ApplicationController
 
   def details_post
     @account.attributes = account_params(@account.params_name)
-
-    if @account.save
-      redirect_to({ action: 'details' }, flash: { success: 'Profile updated successfully.' })
-    else
-      redirect_to({ action: 'details' }, flash: { danger: @account.errors.full_messages.join('<br/>') })
-    end
+    save_and_redirect 'Profile updated successfully.'
   end
 
   def password_post
     @account.attributes = password_params(@account.params_name)
-    if @account.save
-      redirect_to({ action: 'details' }, flash: { success: 'Password changed successfully.' })
-    else
-      redirect_to({ action: 'details' }, flash: { danger: @account.errors.full_messages.join('<br/>') })
-    end
+    save_and_redirect 'Password changed successfully.'
   end
 
   def notifications_post
+  end
+
+  def settings_post
+    @account.attributes = settings_params(@account.params_name)
+    save_and_redirect 'Settings changed successfully.'
   end
 
   def resend_activation
@@ -40,11 +36,23 @@ class AccountsController < ApplicationController
   end
 
   private
+  def save_and_redirect(message)
+    if @account.save
+      redirect_to({ action: 'details' }, flash: { success: message })
+    else
+      redirect_to({ action: 'details' }, flash: { danger: @account.errors.full_messages.join('<br/>') })
+    end
+  end
+
   def password_params(params_name)
     params.require(params_name).permit(:password)
   end
 
   def account_params(params_name)
     params.require(params_name).permit(:name, :email)
+  end
+
+  def settings_params(params_name)
+    params.require(params_name).permit(:currency_id)
   end
 end

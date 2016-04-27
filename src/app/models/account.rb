@@ -9,6 +9,9 @@ class Account < ApplicationRecord
               }
   before_save   :downcase_email
 
+  belongs_to :currency
+  validates :currency_id, presence: true
+
   STATUS_INACTIVE = 0
   STATUS_ACTIVE   = 1
 

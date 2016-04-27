@@ -9,12 +9,12 @@
         <%= form_for(@account, url: { action: 'settings_post'}) do |f| %>
             <div class="form-group">
               <label for="account_password">Your main currency</label>
-              <%= f.collection_select :currency_id, Currency.all, :id, :name, {}, { :class => 'form-control' } %>
+              <%= f.collection_select :currency_id, Currency.all, :id, :full_name, {prompt: true}, { :class => 'form-control' } %>
             </div>
 
           <div class="text-right">
             <button class="btn btn-default form-cancel">Cancel</button>
-            <button type="submit" class="btn btn-primary" disabled>Save</button>
+            <button type="submit" class="btn btn-primary">Save</button>
           </div>
         <% end %>
       </div>
