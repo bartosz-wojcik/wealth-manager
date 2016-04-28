@@ -19,5 +19,9 @@ class ApplicationController < ActionController::Base
     Account.where(id: session[:user_id]).first
   end
 
+  def load_portfolio(id)
+    @portfolio = Portfolio.where(id: id, account_id: current_account.id).first
+  end
+
   helper_method :current_account, :page_title, :parent_link
 end

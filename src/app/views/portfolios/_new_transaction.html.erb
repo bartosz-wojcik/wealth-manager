@@ -11,10 +11,16 @@
       <%= f.hidden_field :portfolio_id %>
       <div class="modal-body">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-7">
             <div class="form-group">
               <label>Amount</label>
               <%= f.text_field :value, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label>Currency</label>
+              <%= f.collection_select :currency_id, Currency.all, :id, :full_name, { selected: current_account.currency_id }, { class: 'form-control' } %>
             </div>
           </div>
         </div>
@@ -22,7 +28,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Category</label>
-              <%= f.text_field :asset_category_id, class: 'form-control' %>
+              <%= f.grouped_collection_select :asset_category_id, AssetType.all, :asset_categories, :name, :id, :name, { prompt: true }, { class: 'form-control' } %>
             </div>
           </div>
         </div>

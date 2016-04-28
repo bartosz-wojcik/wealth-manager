@@ -34,10 +34,6 @@ class PortfoliosController < ApplicationController
   end
 
   private
-  def load_portfolio(id)
-    @portfolio = Portfolio.where(id: id, account_id: current_account.id).first
-  end
-
   def portfolio_params
     params.require(:portfolio).permit(:name, :description)
   end
