@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 unless AssetType.exists?
-  savings     = AssetType.create name: 'savings', description: ''
-  investments = AssetType.create name: 'investments', description: ''
-  retirement  = AssetType.create name: 'retirement', description: ''
-  debt        = AssetType.create name: 'debt', description: ''
+  savings     = AssetType.create name: 'Savings', description: ''
+  investments = AssetType.create name: 'Investments', description: ''
+  retirement  = AssetType.create name: 'Retirement', description: ''
+  debt        = AssetType.create name: 'Debt', description: ''
 
   unless AssetCategory.exists?
     AssetCategory.create([
@@ -37,17 +37,17 @@ unless AssetType.exists?
         description: ''
       },
       {
-        asset_type_id: savings.id,
+        asset_type_id: investments.id,
         name: 'Stock Market',
         description: ''
       },
       {
-        asset_type_id: savings.id,
+        asset_type_id: investments.id,
         name: 'Real Estate',
         description: ''
       },
       {
-        asset_type_id: savings.id,
+        asset_type_id: investments.id,
         name: 'Other',
         description: ''
       }
@@ -59,7 +59,7 @@ unless AssetType.exists?
         description: ''
       },
       {
-        asset_type_id: savings.id,
+        asset_type_id: retirement.id,
         name: 'Other',
         description: ''
       }
