@@ -5,6 +5,7 @@ class AccountsController < ApplicationController
 
   def details
     self.page_title = 'Account Details'
+    @asset_types = AssetType.all
   end
 
   def details_post

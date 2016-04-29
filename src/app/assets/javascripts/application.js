@@ -59,6 +59,24 @@ $(document).ready(function() {
         return false;
     });
 
+    $('#general-settings .new-item').on('click', function() {
+        var listGroup = $(this).parents('.list-group');
+        listGroup.find('.item-name').val('');
+        listGroup.find('.add-new').slideDown();
+        return false;
+    });
+    $('#general-settings .confirm-add').on('click', function() {
+        var listGroup = $(this).parents('.list-group');
+        var newItem = listGroup.find('.template').clone();
+        newItem.find('span').text(listGroup.find('.item-name').val());
+        newItem.insertBefore(listGroup.find('.template')).slideDown(function() {
+            $(this).removeClass('template')
+        });
+        listGroup.find('.add-new').slideUp();
+        return false;
+    });
+
+
 
     // demo data
     var data = [{

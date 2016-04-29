@@ -56,3 +56,17 @@
 #general-settings, #notification-settings, #change-password {
     display: none;
 }
+
+#general-settings .list-group-item-heading {
+    margin-bottom: 0;
+}
+#general-settings .template, #general-settings .add-new {
+    display: none;
+}
+#general-settings .new-item {
+    display: block;
+    cursor: pointer;
+}
+#general-settings .new-item .fa {
+    margin-top: 0.2em;
+}
