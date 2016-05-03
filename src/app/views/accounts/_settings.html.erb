@@ -14,6 +14,7 @@
 
           <div class="form-group">
             <label for="account_password">Custom Asset Categories</label>
+            <%= hidden_field_tag 'category_url', new_asset_category_path %>
             <div class="row">
               <% @asset_types.each do |at| %>
               <div class="col-lg-6">
@@ -25,12 +26,14 @@
                   <div class="list-group-item">
                     <%= ac.name %>
                     <% if ac.account_id.present? %>
+                    <%= hidden_field_tag "asset_category_#{at.id}[]", ac.name, { :class => 'ac-name' } %>
                     <a href="#" class="pull-right remove-item"><i class="fa fa-minus"></i></a>
                     <% end %>
                   </div>
                   <% end %>
                   <div class="list-group-item template">
                     <span></span>
+                    <%= hidden_field_tag "asset_category_#{at.id}[]", '', { :class => 'ac-name' } %>
                     <a href="#" class="pull-right remove-item" title="Remove"><i class="fa fa-minus"></i></a>
                   </div>
                   <div class="list-group-item add-new">

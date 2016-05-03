@@ -9,12 +9,12 @@ class AccountsController < ApplicationController
   end
 
   def details_post
-    @account.attributes = account_params(@account.params_name)
+    @account.attributes = account_params()
     save_and_redirect 'Profile updated successfully.'
   end
 
   def password_post
-    @account.attributes = password_params(@account.params_name)
+    @account.attributes = password_params()
     save_and_redirect 'Password changed successfully.'
   end
 
@@ -22,7 +22,8 @@ class AccountsController < ApplicationController
   end
 
   def settings_post
-    @account.attributes = settings_params(@account.params_name)
+    @account.attributes = settings_params()
+    update_asset_categories
     save_and_redirect 'Settings changed successfully.'
   end
 
@@ -37,6 +38,10 @@ class AccountsController < ApplicationController
   end
 
   private
+  def update_asset_categories
+
+  end
+
   def save_and_redirect(message)
     if @account.save
       redirect_to({ action: 'details' }, flash: { success: message })
@@ -45,15 +50,15 @@ class AccountsController < ApplicationController
     end
   end
 
-  def password_params(params_name)
-    params.require(params_name).permit(:password)
+  def password_params()
+    params.require(@account.params_name).permit(:password)
   end
 
-  def account_params(params_name)
-    params.require(params_name).permit(:name, :email)
+  def account_params()
+    params.require(@account.params_name).permit(:name, :email)
   end
 
-  def settings_params(params_name)
-    params.require(params_name).permit(:currency_id)
+  def settings_params()
+    params.require(@account.params_name).permit(:currency_id)
   end
 end

@@ -68,11 +68,24 @@ $(document).ready(function() {
     $('#general-settings .confirm-add').on('click', function() {
         var listGroup = $(this).parents('.list-group');
         var newItem = listGroup.find('.template').clone();
-        newItem.find('span').text(listGroup.find('.item-name').val());
+        var itemName = listGroup.find('.item-name').val();
+        newItem.find('span').text(itemName);
+        newItem.find('.ac-name').val(itemName);
         newItem.insertBefore(listGroup.find('.template')).slideDown(function() {
             $(this).removeClass('template')
         });
         listGroup.find('.add-new').slideUp();
+        return false;
+    });
+    $(document).on('click', '#general-settings .remove-item', function() {
+        // TODO: logic should be replaced with "undo"
+        /*if (!confirm('Are you sure?')) {
+            return false;
+        }
+        var listGroupItem = $(this).parents('.list-group-item');
+        listGroupItem.slideUp(function() {
+            listGroupItem.remove();
+        });*/
         return false;
     });
 
