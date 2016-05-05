@@ -1,18 +1,26 @@
 <!-- Modal -->
-<div class="modal fade" id="transaction-modal" tabindex="-1" role="dialog" aria-labelledby="portfolio-modal-label" aria-hidden="true">
+<div class="modal fade" id="portfolio-modal" tabindex="-1" role="dialog" aria-labelledby="portfolio-modal-label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">New transaction</h4>
+        <h4 class="modal-title" id="myModalLabel">Update portfolio value</h4>
       </div>
       <%= form_for(@portfolio_change) do |f| %>
       <%= f.hidden_field :portfolio_id %>
       <div class="modal-body">
         <p class="text-primary">
-          Enter here an amount that will be added to your portfolio as a separate transaction.<br/>
-          <em>Want to update the overall portfolio value instead?</em> Use <a href="#" class="open-other-modal" data-toggle="modal" data-target="#portfolio-modal"><strong>this form</strong></a>.
+          Provide your current portfolio value in specific category.<br/>
+          <em>Want to add a transaction instead?</em> Use <a href="#" class="open-other-modal" data-toggle="modal" data-target="#transaction-modal"><strong>this form</strong></a>.
         </p>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Current portfolio value</label>
+              <h3 class="text-success text-center">245,000 €</h3>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">

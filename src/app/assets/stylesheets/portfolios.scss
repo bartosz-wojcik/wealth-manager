@@ -6,13 +6,11 @@
   .media-left {
     padding-right: 2em;
   }
-  .media-body {
-    h4 {
+  .media-body > h4 {
       font-size: 3em;
-    }
-    strong {
-      font-size: 3.8em;
-    }
+  }
+  .media-body > strong {
+    font-size: 3.8em;
   }
 }
 .net-value {
