@@ -9,6 +9,8 @@ class PortfoliosController < ApplicationController
   def show
     load_portfolio(params[:id])
 
+    @asset_types = AssetType.all
+
     @portfolio_transaction = PortfolioChange.new
     @portfolio_transaction.portfolio_id  = @portfolio.id
     @portfolio_transaction.entered_date  = Date.today.to_s

@@ -66,3 +66,10 @@
 <p class="text-center">
   <a href="#" class="btn btn-default btn-lg">Report Details</a>
 </p>
+
+<script>
+  var asset_classes_data = [
+    <%= @asset_types.map { |at| "{ label: '#{at.name}', data: #{at.current_value_for_portfolio(@portfolio)} }" }
+      .join(', ').html_safe %>
+  ];
+</script>

@@ -92,21 +92,7 @@ $(document).ready(function() {
 
 
     // demo data
-    var data = [{
-        label: "Series 0",
-        data: 1
-    }, {
-        label: "Series 1",
-        data: 3
-    }, {
-        label: "Series 2",
-        data: 9
-    }, {
-        label: "Series 3",
-        data: 20
-    }];
-
-    var plotObj = $.plot($("#flot-pie-chart"), data, {
+    var plotObj = $.plot($("#flot-pie-chart"), asset_classes_data, {
         series: {
             pie: {
                 show: true
