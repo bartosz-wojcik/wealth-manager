@@ -6,8 +6,9 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">New transaction</h4>
       </div>
-      <%= form_for(@portfolio_change) do |f| %>
+      <%= form_for(@portfolio_transaction) do |f| %>
       <%= f.hidden_field :portfolio_id %>
+      <%= f.hidden_field :partial_value %>
       <div class="modal-body">
         <p class="text-primary">
           Enter here an amount that will be added to your portfolio as a separate transaction.<br/>

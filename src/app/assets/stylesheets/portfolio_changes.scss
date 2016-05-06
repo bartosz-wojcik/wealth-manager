@@ -1,3 +1,10 @@
 // Place all the styles related to the PortfolioChanges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#portfolio-modal {
+  .portfolio-value {
+    margin-top: 0;
+    font-size: 2.2em;
+  }
+}

@@ -8,8 +8,16 @@ class PortfoliosController < ApplicationController
 
   def show
     load_portfolio(params[:id])
+
+    @portfolio_transaction = PortfolioChange.new
+    @portfolio_transaction.portfolio_id  = @portfolio.id
+    @portfolio_transaction.entered_date  = Date.today.to_s
+    @portfolio_transaction.partial_value = true
+
     @portfolio_change = PortfolioChange.new
-    @portfolio_change.portfolio_id = @portfolio.id
+    @portfolio_change.portfolio_id  = @portfolio.id
+    @portfolio_change.entered_date  = Date.today.to_s
+    @portfolio_change.partial_value = false
   end
 
   def new
