@@ -13,6 +13,16 @@
     font-size: 3.8em;
   }
 }
+.welcome-box {
+  margin-bottom: 2em;
+  .welcome {
+    font-size: 3em;
+    color: green;
+  }
+  blockquote {
+    font-size: 1em;
+  }
+}
 .net-value {
   padding: 0 0 0 1em;
 }
