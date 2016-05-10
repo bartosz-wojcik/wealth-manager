@@ -2,6 +2,11 @@ class AssetType < ApplicationRecord
   has_many :asset_categories
 
   def current_value_for_portfolio(portfolio, currency = nil)
+    # currency should be always set
+    unless currency.present?
+      currency = portfolio.account.currency
+    end
+
     categories = asset_categories.map { |c| c.id }
     # we need to get the latest "complete" portfolio value, if exists
     full_value = PortfolioChange
@@ -16,9 +21,7 @@ class AssetType < ApplicationRecord
     if full_value.present?
       current_value = full_value.value
       # TODO: need to recalculate to base currency if needed
-      if currency.present?
 
-      end
     else
       current_value = 0
     end

@@ -1,5 +1,7 @@
 class Portfolio < ApplicationRecord
+  belongs_to :account
   has_many :portfolio_changes
+  has_many :net_values
 
   def currencies
     PortfolioChange
