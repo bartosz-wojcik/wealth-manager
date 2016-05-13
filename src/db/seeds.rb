@@ -93,34 +93,42 @@ unless Currency.exists?
   Currency.create([
     {
       name: 'USD',
+      symbol: '$',
       description: 'US Dollar'
     },
     {
       name: 'EUR',
+      symbol: '€',
       description: 'Euro'
     },
     {
       name: 'GBP',
+      symbol: '£',
       description: 'British Pound'
     },
     {
       name: 'CHF',
+      symbol: 'Fr',
       description: 'Swiss Franc'
     },
     {
       name: 'PLN',
+      symbol: 'zł',
       description: 'Polish Zloty'
     },
     {
       name: 'CAD',
+      symbol: '$',
       description: 'Canadian Dollar'
     },
     {
       name: 'AUD',
+      symbol: '$',
       description: 'Australian Dollar'
     },
     {
       name: 'JPY',
+      symbol: '¥',
       description: 'Japanese Yen'
     }
   ])

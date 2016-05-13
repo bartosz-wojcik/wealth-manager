@@ -30,6 +30,7 @@ namespace :daily do
       rate.quote_currency_id = currencies[quote].id
       rate.pair_name         = base + quote
       rate.current_rate      = current_rates['rates'][quote]
+      rate.rate_date         = current_rates['date']
       rate.rate_cached_time  = Time.now
       updated += 1 if rate.save
     end
