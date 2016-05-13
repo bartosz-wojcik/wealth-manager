@@ -15,18 +15,27 @@ class AssetType < ApplicationRecord
                       .where('portfolio_id = ? AND asset_category_id IN (?) AND partial_value = FALSE',
                              portfolio.id, categories)
                       .order('entered_date DESC')
-                      .limit(1)
                       .first
 
+    current_currency = currency
     if full_value.present?
-      current_value = full_value.value
-      # TODO: need to recalculate to base currency if needed
-
+      # need to recalculate to desired currency
+      if full_value.currency_id != currency.id
+        current_value = currency.convert_from(full_value.value, full_value.currency)
+        # it was not possible to convert currency
+        unless current_value.present?
+          current_value    = full_value.value
+          current_currency = full_value.currency
+        end
+      else
+        current_value    = full_value.value
+      end
     else
-      current_value = 0
+      current_value    = 0
     end
 
     # TODO: include partial updates now
-    current_value
+
+    return current_value, current_currency
   end
 end

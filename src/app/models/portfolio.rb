@@ -12,7 +12,12 @@ class Portfolio < ApplicationRecord
       .all
   end
 
-  def get_current_value(currency = nil)
+  def current_value(currency = nil)
+    unless currency.present?
+      currency = this.account.currency
+    end
 
+    # TODO: get the full value of portfolio
+    # TODO: include partial updates
   end
 end
