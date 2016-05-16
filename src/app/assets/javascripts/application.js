@@ -95,8 +95,21 @@ $(document).ready(function() {
     var plotObj = $.plot($("#flot-pie-chart"), asset_classes_data, {
         series: {
             pie: {
-                show: true
+                show: true,
+                label: {
+                    show: true,
+                    radius: 0.5,
+                    formatter: function (label, series) {
+                        return '<div class="piechart-label">' + label +
+                            '<br/>' + series.data[0][1].toFixed(2) +
+                            '<br/>(' + series.percent.toFixed(2) + '%)</div>';
+                    },
+                    threshold: 0.1
+                }
             }
+        },
+        legend: {
+            show: false
         },
         grid: {
             hoverable: true
@@ -1072,7 +1085,7 @@ $(document).ready(function() {
     ];
 
     function euroFormatter(v, axis) {
-        return v.toFixed(axis.tickDecimals) + "â‚¬";
+        return v.toFixed(axis.tickDecimals) + "€";
     }
 
     function doPlot(position) {

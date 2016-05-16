@@ -11,7 +11,7 @@
       </div>
       <div class="media-body">
         <h4>Net Value</h4>
-        <strong class="positive">245,000 €</strong>
+        <strong class="positive"><%= @portfolio.current_value_formatted %></strong>
       </div>
     </div>
   </div>
@@ -79,7 +79,7 @@
 
 <script>
   var asset_classes_data = [
-    <%= @asset_types.map { |at| "{ label: '#{at.name}', data: #{at.current_value_for_portfolio(@portfolio)} }" }
+    <%= @asset_types.map { |at| "{ label: '#{at.name}', data: #{at.current_value(@portfolio)} }" }
       .join(', ').html_safe %>
   ];
 </script>

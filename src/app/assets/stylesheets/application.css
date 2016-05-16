@@ -70,3 +70,10 @@
 #general-settings .new-item .fa {
     margin-top: 0.2em;
 }
+
+.piechart-label {
+    font-size: 0.9em;
+    text-align: center;
+    padding: 2px;
+    color: #fff;
+}

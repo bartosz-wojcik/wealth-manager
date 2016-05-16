@@ -6,7 +6,7 @@ class Currency < ApplicationRecord
   def get_latest_rate(relative_to)
     CurrencyRate
       .where('base_currency_id = ? AND quote_currency_id = ? OR ' +
-             'base_currency_id = ? AND quote_currency_id = ?', this.id, relative_to.id, relative_to.id, this.id)
+             'base_currency_id = ? AND quote_currency_id = ?', id, relative_to.id, relative_to.id, id)
       .order('rate_date DESC')
       .first
   end
