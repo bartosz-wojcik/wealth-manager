@@ -78,8 +78,13 @@
 </div>
 
 <script>
+  var currency_symbol    = '<%= current_account.currency.symbol %>';
   var asset_classes_data = [
     <%= @asset_types.map { |at| "{ label: '#{at.name}', data: #{at.current_value(@portfolio)} }" }
+      .join(', ').html_safe %>
+  ];
+  var net_worth_data = [
+    <%= @portfolio.historical_values.map { |hv| "[#{hv.date.to_time.to_i * 1000}, #{hv.value}]" }
       .join(', ').html_safe %>
   ];
 </script>

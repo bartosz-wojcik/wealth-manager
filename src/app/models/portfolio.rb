@@ -23,6 +23,16 @@ class Portfolio < ApplicationRecord
     ('%.2f' % current_value(currency)) + account.currency.symbol
   end
 
+  def historical_values(currency = nil)
+    unless currency.present?
+      currency = account.currency
+    end
+    relative_date = nil
+
+    # TODO: implement logic
+    []
+  end
+
 
   def full_value(currency, categories = nil)
     result_value = 0
@@ -62,6 +72,24 @@ class Portfolio < ApplicationRecord
   end
 
   private
+  def next_full_value_record(categories = nil, relative_to = nil)
+    if categories.present?
+      PortfolioChange
+          .joins(:portfolio)
+          .where('portfolio_id = ? AND asset_category_id IN (?) AND partial_value = FALSE AND entered_date > ?',
+                 id, categories, relative_to.present? ? relative_to : '0000-00-00')
+          .order('entered_date ASC')
+          .first
+    else
+      PortfolioChange
+          .joins(:portfolio)
+          .where('portfolio_id = ? AND partial_value = FALSE AND entered_date > ?',
+                 id, relative_to.present? ? relative_to : '0000-00-00')
+          .order('entered_date DESC')
+          .first
+    end
+  end
+
   def full_value_record(categories = nil)
     if categories.present?
       PortfolioChange
