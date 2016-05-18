@@ -84,7 +84,7 @@
       .join(', ').html_safe %>
   ];
   var net_worth_data = [
-    <%= @portfolio.historical_values.map { |hv| "[#{hv.date.to_time.to_i * 1000}, #{hv.value}]" }
+    <%= @portfolio.historical_values.map { |hv| "[#{hv[:date].to_time.to_i * 1000}, #{hv[:value]}]" }
       .join(', ').html_safe %>
   ];
 </script>
