@@ -1,6 +1,7 @@
 class PortfolioChangesController < ApplicationController
 
   before_action :authorize
+  before_filter :fix_value, :only => [ :create ]
 
   def create
     @portfolio_change = PortfolioChange.new(portfolio_change_params)
@@ -21,6 +22,11 @@ class PortfolioChangesController < ApplicationController
       :notes,
       :partial_value
     )
+  end
+
+  def fix_value
+    # TODO: add fixing other characters, like spaces, $ signs, etc.
+    params[:portfolio_change][:value].sub!(',', '.')
   end
 
 end
