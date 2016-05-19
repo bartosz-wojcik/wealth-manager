@@ -22,69 +22,18 @@
       </div>
       <div class="media-body">
         <h4>Last Month</h4>
-        <strong class="positive">3%</strong>
+        <strong class="positive"><%= @portfolio.last_month_change %></strong>
+        <% if @portfolio.portfolio_changes.present? %>
         <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#transaction-modal">Update</button>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 <%= render 'new_transaction' %>
 <%= render 'update_portfolio' %>
-<div class="row portfolio-charts">
-  <div class="col-md-5 col-md-offset-1">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        Asset Classes
-      </div>
-      <!-- /.panel-heading -->
-      <div class="panel-body">
-        <div class="flot-chart">
-          <div class="flot-chart-content" id="flot-pie-chart"></div>
-        </div>
-      </div>
-      <!-- /.panel-body -->
-    </div>
-    <!-- /.panel -->
-  </div>
-  <div class="col-md-5">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        History
-      </div>
-      <!-- /.panel-heading -->
-      <div class="panel-body">
-        <div class="flot-chart">
-          <div class="flot-chart-content" id="flot-line-chart-multi"></div>
-        </div>
-      </div>
-      <!-- /.panel-body -->
-    </div>
-    <!-- /.panel -->
-  </div>
-</div>
-
-<p class="text-center">
-  <a href="#" class="btn btn-default btn-lg">Report Details</a>
-</p>
-
-<div class="row welcome-box">
-  <div class="col-md-8 col-md-offset-2">
-    <% quote = QuotesHelper::get_one %>
-    <blockquote>
-      <p><%= quote[:quote] %></p>
-      <footer><%= quote[:author] %></footer>
-    </blockquote>
-  </div>
-</div>
-
-<script>
-  var currency_symbol    = '<%= current_account.currency.symbol %>';
-  var asset_classes_data = [
-    <%= @asset_types.map { |at| "{ label: '#{at.name}', data: #{at.current_value(@portfolio)} }" }
-      .join(', ').html_safe %>
-  ];
-  var net_worth_data = [
-    <%= @portfolio.historical_values.map { |hv| "[#{hv[:date].to_time.to_i * 1000}, #{hv[:value]}]" }
-      .join(', ').html_safe %>
-  ];
-</script>
+<% if @portfolio.portfolio_changes.empty? %>
+  <%= render 'dashboard_empty' %>
+<% else %>
+  <%= render 'dashboard_charts' %>
+<% end %>
