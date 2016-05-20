@@ -98,18 +98,16 @@ $(document).ready(function() {
                 show: true,
                 label: {
                     show: true,
-                    radius: 0.5,
+                    radius: 0.6,
                     formatter: function (label, series) {
-                        return '<div class="piechart-label">' + label +
-                            '<br/>' + series.data[0][1].toFixed(2) + currency_symbol +
-                            '<br/>(' + series.percent.toFixed(2) + '%)</div>';
+                        return '<div class="piechart-label">' + series.percent.toFixed(1) + '%</div>';
                     },
                     threshold: 0.1
                 }
             }
         },
         legend: {
-            show: false
+            show: true
         },
         grid: {
             hoverable: true
