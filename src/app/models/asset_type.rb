@@ -8,7 +8,7 @@ class AssetType < ApplicationRecord
     end
     categories = asset_categories.map { |c| c.id }
     # @current_currency = currency
-    '%.2f' % (portfolio.full_value(currency, categories) + portfolio.partial_value(currency, categories))
+    '%.2f' % portfolio.final_value(currency, categories)
   end
 
   def current_value_formatted(portfolio, currency = nil)
