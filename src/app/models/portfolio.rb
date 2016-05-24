@@ -56,21 +56,25 @@ class Portfolio < ApplicationRecord
     end
     records = value_records(for_date, categories)
     # go through all records...
-    records.each do |category, values|
-      values.each do |value|
+    records.each do |category_id, value_hash|
+      value_hash[:change].each do |value|
         # need to recalculate to desired currency
         if value.currency_id != currency.id
           recalculated = currency.convert_from(value.value, value.currency)
           if recalculated.present?
-            result_value += recalculated
+            result_value = value_hash[:category].asset_type.is_debt ?
+                result_value - recalculated :
+                result_value + recalculated
           else
             # it was not possible to convert currency
-            #result_value = value.value
+            #result_value = value.change.value
             # TODO: add handling of this situation
             #@current_currency = full_value.currency
           end
         else
-          result_value += value.value
+          result_value = value_hash[:category].asset_type.is_debt ?
+              result_value - value.value :
+              result_value + value.value
         end
         # ...until a full value is found
         break unless value.partial_value
@@ -81,9 +85,10 @@ class Portfolio < ApplicationRecord
   end
 
   def all_categories
-    AssetCategory
-      .where('account_id IS NULL OR account_id = ?', self.account_id)
-      .all
+    if @categories.nil?
+      @categories = AssetCategory.where('account_id IS NULL OR account_id = ?', self.account_id)
+    end
+    @categories
   end
 
   private
@@ -108,16 +113,19 @@ class Portfolio < ApplicationRecord
 
   def value_records(for_date, categories = nil)
     records = {}
-    if categories.blank?
-      categories = all_categories.to_a
+    if categories.nil?
+      categories = self.all_categories
     end
     # gets all portfolio changes grouped by category
     categories.each do |c|
-      records[c] = PortfolioChange
-                    .where('portfolio_id = ? AND asset_category_id = ? AND entered_date <= ?',
-                           id, c, for_date)
-                    .order('entered_date DESC, id DESC')
-                    .all.to_a
+      records[c.id] = {
+          :change =>  PortfolioChange
+                        .where('portfolio_id = ? AND asset_category_id = ? AND entered_date <= ?',
+                               id, c.id, for_date)
+                        .order('entered_date DESC, id DESC')
+                        .all.to_a,
+          :category => c
+      }
     end
     records
   end

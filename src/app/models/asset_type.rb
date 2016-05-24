@@ -6,9 +6,8 @@ class AssetType < ApplicationRecord
     unless currency.present?
       currency = portfolio.account.currency
     end
-    categories = asset_categories.map { |c| c.id }
     # @current_currency = currency
-    '%.2f' % portfolio.final_value(currency, categories)
+    '%.2f' % portfolio.final_value(currency, asset_categories)
   end
 
   def current_value_formatted(portfolio, currency = nil)
