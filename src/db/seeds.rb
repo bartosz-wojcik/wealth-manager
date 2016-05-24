@@ -10,7 +10,7 @@ unless AssetType.exists?
   savings     = AssetType.create name: 'Savings', description: ''
   investments = AssetType.create name: 'Investments', description: ''
   retirement  = AssetType.create name: 'Retirement', description: ''
-  debt        = AssetType.create name: 'Debt', description: ''
+  debt        = AssetType.create name: 'Debt', description: '', is_debt: true
 
   unless AssetCategory.exists?
     AssetCategory.create([

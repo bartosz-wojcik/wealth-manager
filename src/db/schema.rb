@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513061207) do
+ActiveRecord::Schema.define(version: 20160524061720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,15 +45,17 @@ ActiveRecord::Schema.define(version: 20160513061207) do
   create_table "asset_types", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "is_debt",     default: false
   end
 
   create_table "currencies", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "description"
+    t.string   "symbol",      limit: 255, default: "", null: false
   end
 
   create_table "currency_rates", force: :cascade do |t|
