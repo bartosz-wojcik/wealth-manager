@@ -48,12 +48,19 @@ class Portfolio < ApplicationRecord
     '0%'
   end
 
+  def portfolio_changes_sorted
+    PortfolioChange.where(portfolio_id: id).order('entered_date ASC, id DESC').all
+  end
 
-  def final_value(currency, categories = nil, for_date = nil)
-    result_value = 0
-    if for_date.nil?
+
+  def final_value(currency = nil, categories = nil, for_date = nil)
+    unless currency.present?
+      currency = account.currency
+    end
+    unless for_date.present?
       for_date = Date.today
     end
+    result_value = 0
     records = value_records(for_date, categories)
     # go through all records...
     records.each do |category_id, value_hash|

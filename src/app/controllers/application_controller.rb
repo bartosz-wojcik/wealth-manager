@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     @account = current_account
   end
 
+  def load_current_portfolio
+    @current_portfolio = Portfolio.where(account_id: current_account.id).first
+  end
+
   private
   def current_account
     Account.where(id: session[:user_id]).first

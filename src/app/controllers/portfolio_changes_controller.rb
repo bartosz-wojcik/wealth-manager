@@ -3,6 +3,10 @@ class PortfolioChangesController < ApplicationController
   before_action :authorize
   before_filter :fix_value, :only => [ :create ]
 
+  def index
+    load_current_portfolio
+  end
+
   def create
     @portfolio_change = PortfolioChange.new(portfolio_change_params)
     @portfolio_change.save
