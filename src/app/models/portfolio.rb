@@ -52,6 +52,37 @@ class Portfolio < ApplicationRecord
     PortfolioChange.where(portfolio_id: id).order('entered_date ASC, id DESC').all
   end
 
+  def portfolio_history_sorted
+    changes = portfolio_changes_sorted
+    totals  = {}
+    result  = []
+    previous_total = 0
+
+    changes.each do |pc|
+      unless totals.key?(pc.asset_category_id)
+        totals[pc.asset_category_id] = 0
+      end
+      if pc.partial_value
+        totals[pc.asset_category_id] += pc.value
+      else
+        totals[pc.asset_category_id] = pc.value
+      end
+
+      current_total = 0
+      totals.each do |cid, value|
+        current_total += value
+      end
+      result << {
+        :date   => pc.entered_date,
+        :total  => current_total,
+        :amount => current_total - previous_total,
+        :pc     => pc
+      }
+      previous_total = current_total
+    end
+
+    result
+  end
 
   def final_value(currency = nil, categories = nil, for_date = nil)
     unless currency.present?
@@ -126,11 +157,11 @@ class Portfolio < ApplicationRecord
     # gets all portfolio changes grouped by category
     categories.each do |c|
       records[c.id] = {
-          :change =>  PortfolioChange
-                        .where('portfolio_id = ? AND asset_category_id = ? AND entered_date <= ?',
-                               id, c.id, for_date)
-                        .order('entered_date DESC, id DESC')
-                        .all.to_a,
+          :change => PortfolioChange
+                         .where('portfolio_id = ? AND asset_category_id = ? AND entered_date <= ?',
+                                id, c.id, for_date)
+                         .order('entered_date DESC, id DESC')
+                         .all.to_a,
           :category => c
       }
     end

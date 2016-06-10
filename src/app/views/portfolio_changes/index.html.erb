@@ -8,19 +8,23 @@
         <tr>
           <th>No.</th>
           <th>Portfolio value</th>
+          <th>Change</th>
+          <th>Change type</th>
           <th>Date</th>
           <th>Category</th>
           <th>Comments</th>
         </tr>
         </thead>
         <tbody>
-        <% @current_portfolio.portfolio_changes_sorted.each_with_index do |pc, i| %>
+        <% @current_portfolio.portfolio_history_sorted.each_with_index do |item, i| %>
             <tr>
               <td><%= i + 1 %></td>
-              <td><%= '%.2f' % pc.portfolio.final_value(nil, nil, pc.entered_date) # TODO: add getting final value up to specific record %></td>
-              <td><%= pc.entered_date %></td>
-              <td><%= pc.asset_category.name %></td>
-              <td><%= pc.notes %></td>
+              <td><%= '%.2f' % item[:total] %></td>
+              <td><%= '%.2f' % item[:amount] %></td>
+              <td><%= item[:pc].partial_value ? 'amount added' : 'portfolio value change' %></td>
+              <td><%= item[:date] %></td>
+              <td><%= item[:pc].asset_category.name %></td>
+              <td><%= item[:pc].notes %></td>
             </tr>
         <% end %>
         </tbody>
