@@ -11,11 +11,11 @@ default: &default
 
 development:
   <<: *default
-  host: db
-  port: 5432
-  database: dev
-  username: dev
-  password: dev
+  host: <%= ENV['DB_HOST'] %>
+  port: <%= ENV['DB_PORT'] %>
+  database: <%= ENV['DB_DATABASE'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
