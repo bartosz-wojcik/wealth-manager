@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get   'accounts/details'
   match 'accounts/details_post', via: [:post, :patch]
+  get   'accounts/password'
   match 'accounts/password_post', via: [:post, :patch]
   match 'accounts/notifications_post', via: [:post, :patch]
   match 'accounts/settings_post', via: [:post, :patch]

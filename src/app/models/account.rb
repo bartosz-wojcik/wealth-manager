@@ -1,15 +1,17 @@
 class Account < ApplicationRecord
 
   has_secure_password
+  belongs_to   :currency
+
+  before_save      :downcase_email
+  after_initialize :init_account, if: :new_record?
+
   validates :email,
               presence: true,
               uniqueness: true,
               format: {
                   with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
               }
-  before_save   :downcase_email
-
-  belongs_to :currency
   validates :currency_id, presence: true
 
   STATUS_INACTIVE = 0
@@ -75,6 +77,12 @@ class Account < ApplicationRecord
   end
 
   private
+  def init_account
+    self.currency_id = Currency::DEFAULT_CURRENCY_ID
+    self.password_digest = Account::DUMMY_PASSWORD
+    self.generate_activation_key
+  end
+
   def downcase_email
     self.email = email.downcase if email.present?
   end

@@ -1,4 +1,7 @@
 class Currency < ApplicationRecord
+
+  DEFAULT_CURRENCY_ID = 1
+
   def full_name
     "#{description} (#{name})"
   end

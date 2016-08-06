@@ -50,12 +50,20 @@ $(document).ready(function() {
 
     $('.password-link a').on('click', function() {
         $('.password-link').slideUp();
-        $('#change-password').slideDown();
+        $('#change-password').slideDown(function() {
+            $('#change-password input[type=password]').focus();
+        });
         return false;
     });
     $('#change-password .form-cancel').on('click', function() {
         $('.password-link').slideDown();
         $('#change-password').slideUp();
+        return false;
+    });
+    $('#change-password input[type=password]').on('keyup', function(e) {
+        if (e.which == 13) {
+            $(this).parents('form').submit();
+        }
         return false;
     });
 

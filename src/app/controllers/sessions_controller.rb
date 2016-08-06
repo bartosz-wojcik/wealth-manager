@@ -7,15 +7,14 @@ class SessionsController < ApplicationController
 
   def save
     @account = Account.find_by_email(account_params[:email])
-    if @account.nil?
+    if @account.blank?
       @account = Account.new(account_params)
-      @account.password_digest = Account::DUMMY_PASSWORD
-      @account.generate_activation_key
       if @account.save
         session[:user_id] = @account.id
         AccountMailer.activation_email(@account).deliver_now
         redirect_to root_url, flash: { success: 'Your account has been created!' }
       else
+        flash[:danger] = @account.errors.full_messages[0] if @account.errors.any?
         render 'new'
       end
     elsif @account.not_activated?
@@ -60,10 +59,10 @@ class SessionsController < ApplicationController
 
   def activate
     account = Account.find_by_activation_key(params[:key])
-    if account && account.not_activated? && account.activation_key_valid?(params[:key])
+    if account&.not_activated? && account.activation_key_valid?(params[:key])
       account.set_active!
       session[:user_id] = account.id
-      redirect_to({controller: 'accounts', action: 'password' }, flash: {success: 'Account activated successfully.<br/>Please set your password now to finish the activation process.' })
+      redirect_to({ controller: 'accounts', action: 'password' }, flash: { success: 'Account activated successfully.<br/>Please set your password now to finish the activation process.' })
     else
       redirect_to activate_start_url, flash: { danger: 'Provided activation link does not point to a valid account or the link has expired.' }
     end
@@ -85,11 +84,11 @@ class SessionsController < ApplicationController
 
   def recover
     account = Account.find_by_activation_key(params[:key])
-    if account && account.active? && account.activation_key_valid?(params[:key])
+    if account&.active? && account.activation_key_valid?(params[:key])
       # deactivate current key
       account.generate_activation_key!
       session[:user_id] = account.id
-      redirect_to({controller: 'accounts', action: 'password' }, flash: {success: 'Please set your new password.' })
+      redirect_to({ controller: 'accounts', action: 'password' }, flash: { success: 'Please set your new password.' })
     else
       redirect_to recover_start_url, flash: { danger: 'Provided recovery link does not point to a valid account or the link has expired.' }
     end
